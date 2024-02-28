@@ -1,0 +1,30 @@
+---
+product: &product
+  base_uri: "http://www.example.com"
+  connect_timeout: 1000
+  request_timeout: 1500
+  request_retry_count: 1
+  data_key: ""
+  code_key: "ret_code"
+  message_key: "err_msg"
+  success_code: 0
+  content_type: "application/json"
+
+  api:
+    example:
+      uri: "v1/app"
+      method: "post"
+      parameter: "params1,params2"
+      required: ""
+
+preline:
+  <<: *product
+
+test: &test
+  <<: *product
+
+develop:
+  <<: *test
+
+
+

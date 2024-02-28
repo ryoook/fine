@@ -1,0 +1,25 @@
+# database config
+product: &product
+  default: &default
+    driver: "mysql"
+    write: "root:password@tcp(example:3306)/test?charset=utf8mb4&parseTime=True&loc=Local"
+    read: "root:password@tcp(example:3306)/test?charset=utf8mb4&parseTime=True&loc=Local"
+
+preline:
+  <<: *product
+
+test: &test
+  <<: *product
+
+develop:
+  <<: *test
+  default:
+    <<: *default
+    write: "root:bk12344321@tcp(localhost:3306)/test?charset=utf8mb4&parseTime=True&loc=Local"
+    read: "root:bk12344321@tcp(localhost:3306)/test?charset=utf8mb4&parseTime=True&loc=Local"
+
+aws:
+  <<: *product
+
+aws_test:
+  <<: *test

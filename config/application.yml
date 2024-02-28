@@ -1,0 +1,22 @@
+# main config
+---
+product: &product
+  app_id: "app_id"
+  log_path: "/tmp/%s"
+  log_data_length: 2048  #日志长度 若超过此长度则截断
+  log_buffer: 32
+
+preline:
+  <<: *product
+
+test: &test
+  <<: *product
+
+develop:
+  <<: *test
+
+aws_test:
+  <<: *test
+
+aws:
+  <<: *product

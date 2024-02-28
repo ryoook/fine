@@ -1,0 +1,17 @@
+---
+product: &product
+  brokers: "example1.com:9092,example2.com:9092,example3.com:9092"
+  topic: "topic"
+  partition: ""
+  group_id: "groupid"
+
+preline:
+  <<: *product
+
+test: &test
+  <<: *product
+
+develop:
+  <<: *test
+
+
